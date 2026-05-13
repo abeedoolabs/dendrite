@@ -248,6 +248,8 @@ var CanvasRenderer = class {
     const px = node.isRight ? node.x + nodeW / 2 + spacing + plusR : node.x - nodeW / 2 - spacing - plusR;
     return { x: px, y: node.y };
   }
+  addNode(node) {
+  }
   setCreating(val) {
     this.creating = val;
   }

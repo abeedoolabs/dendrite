@@ -97,6 +97,7 @@ export class CanvasRenderer {
     return { x: px, y: node.y };
   }
 
+  addNode(node) { /* canvas redraws every frame, no DOM to create */ }
   setCreating(val) { this.creating = val; }
   setMouse(mx, my) { this.mouse.x = mx; this.mouse.y = my; }
 
