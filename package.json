@@ -1,6 +1,6 @@
 {
   "name": "@abeedoo/dendrite",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Interactive mind map visualization — Canvas and SVG renderers",
   "type": "module",
   "main": "dist/dendrite.min.js",
@@ -12,12 +12,23 @@
     },
     "./svelte": "./src/svelte/DendriteMap.svelte"
   },
-  "files": ["dist", "src/svelte"],
+  "files": [
+    "dist",
+    "src/svelte"
+  ],
   "scripts": {
     "build": "node build.js",
     "dev": "open demo.html"
   },
-  "keywords": ["mindmap", "visualization", "canvas", "svg", "interactive", "tree", "dendrite"],
+  "keywords": [
+    "mindmap",
+    "visualization",
+    "canvas",
+    "svg",
+    "interactive",
+    "tree",
+    "dendrite"
+  ],
   "author": "Clifford Meece <clifford.meece@me.com>",
   "license": "MIT",
   "repository": {
