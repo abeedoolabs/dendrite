@@ -1,6 +1,6 @@
 {
   "name": "@abeedoo/dendrite",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Interactive mind map visualization — Canvas and SVG renderers",
   "type": "module",
   "main": "dist/dendrite.min.js",
