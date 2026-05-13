@@ -23,8 +23,23 @@ export class DendriteNode {
   }
 
   setDirection(isRight, colors) {
-    this.isRight = isRight;
-    this.color = isRight ? colors.primary : colors.secondary;
+    if (this.isRight !== isRight) {
+      // Mirror x position around parent
+      if (this.parent) {
+        const dx = this.x - this.parent.x;
+        this.x = this.parent.x - dx;
+        // Move children by the same delta
+        const shift = -2 * dx;
+        this.children.forEach(c => c._shiftX(shift));
+      }
+      this.isRight = isRight;
+      this.color = isRight ? colors.primary : colors.secondary;
+    }
     this.children.forEach(c => c.setDirection(isRight, colors));
+  }
+
+  _shiftX(dx) {
+    this.x += dx;
+    this.children.forEach(c => c._shiftX(dx));
   }
 }
