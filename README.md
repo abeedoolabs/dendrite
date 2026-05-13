@@ -2,7 +2,7 @@
 
 Interactive mind map visualization with Canvas and SVG renderers. Zero dependencies.
 
-**[Live Demo](https://dendrite.abeedoo.com)** · **[npm](https://www.npmjs.com/package/@abeedoo/dendrite)** · **[GitHub](https://github.com/abeedoolabs/dendrite)**
+**[Live Demo](https://cliffordmeece.com/dendrite-demo/)** · **[npm](https://www.npmjs.com/package/@abeedoo/dendrite)** · **[GitHub](https://github.com/abeedoolabs/dendrite)**
 
 Originally built with [Processing.js](https://github.com/meecect/dendriteJS) (2012), rewritten as a modern ES module with dual renderers.
 
