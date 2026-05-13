@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>dendriteJS v2 — Demo</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #060812;
+      color: #e8eefc;
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+    h1 {
+      font-family: ui-monospace, monospace;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    h1 span { color: #2de2e6; }
+    .subtitle {
+      color: #a9b6d8;
+      font-size: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+    h2 {
+      font-size: 0.9rem;
+      color: #a9b6d8;
+      margin-top: 2.5rem;
+      margin-bottom: 0.5rem;
+      font-family: ui-monospace, monospace;
+      width: 100%;
+      max-width: 900px;
+    }
+    h2 em { color: #7c5cff; font-style: normal; }
+    .canvas-wrap {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
+    }
+    .controls {
+      margin-top: 2rem;
+      font-family: ui-monospace, monospace;
+      font-size: 0.75rem;
+      color: #a9b6d8;
+      opacity: 0.5;
+      text-align: center;
+      line-height: 1.8;
+    }
+    a { color: #2de2e6; }
+    code {
+      font-family: ui-monospace, monospace;
+      font-size: 0.8rem;
+      background: rgba(255,255,255,0.06);
+      padding: 0.15em 0.4em;
+      border-radius: 4px;
+      color: #2de2e6;
+    }
+  </style>
+</head>
+<body>
+  <h1><span>$</span> dendriteJS <span>v2</span></h1>
+  <p class="subtitle">interactive mind map — Canvas + SVG renderers</p>
+
+  <h2>SVG renderer <em>(default)</em></h2>
+  <div class="canvas-wrap" id="demo-svg"></div>
+
+  <h2>Canvas renderer</h2>
+  <div class="canvas-wrap" id="demo-canvas"></div>
+
+  <h2>SVG with nested JSON data</h2>
+  <div class="canvas-wrap" id="demo-nested"></div>
+
+  <h2>SVG with flat JSON data</h2>
+  <div class="canvas-wrap" id="demo-flat"></div>
+
+  <div class="controls">
+    drag nodes to move &middot; hover for <code>+</code> button &middot; click + and drag to create child<br>
+    double-click to rename &middot; nodes flip when crossing center<br><br>
+    <code>npm install @abeedoo/dendrite</code><br><br>
+    <a href="https://github.com/meecect/dendriteJS">v1 (Processing.js)</a> &middot;
+    <a href="https://github.com/abeedoolabs/dendrite">v2 (GitHub)</a>
+  </div>
+
+  <script src="dist/dendrite.min.js"></script>
+  <script>
+    // 1. Default SVG
+    new Dendrite('#demo-svg');
+
+    // 2. Canvas renderer
+    new Dendrite('#demo-canvas', { renderer: 'canvas' });
+
+    // 3. Nested JSON
+    new Dendrite('#demo-nested', {
+      data: {
+        label: '~/clifford',
+        right: [
+          { label: 'code', children: ['svelte', 'typescript', 'python'] },
+          { label: 'writing', children: ['quine story', 'fence post'] },
+          'math'
+        ],
+        left: [
+          { label: 'outdoors', children: ['climbing', 'skiing', 'canoe'] },
+          'guitar',
+          'GriGri'
+        ]
+      }
+    });
+
+    // 4. Flat JSON
+    new Dendrite('#demo-flat', {
+      data: [
+        { id: 'root', label: 'projects' },
+        { id: 'radish', parentId: 'root', label: 'radish' },
+        { id: 'hub', parentId: 'radish', label: 'hub' },
+        { id: 'care', parentId: 'radish', label: 'care' },
+        { id: 'commerce', parentId: 'radish', label: 'commerce' },
+        { id: 'blog', parentId: 'root', label: 'blog' },
+        { id: 'ghost', parentId: 'blog', label: 'ghost theme' },
+        { id: 'dendrite', parentId: 'blog', label: 'dendriteJS' },
+        { id: 'abeedoo', parentId: 'root', label: 'abeedoo' },
+        { id: 'dashboard', parentId: 'abeedoo', label: 'dashboard' },
+        { id: 'bigdesign', parentId: 'abeedoo', label: 'bigdesign-svelte' }
+      ]
+    });
+  </script>
+</body>
+</html>

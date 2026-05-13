@@ -1,0 +1,30 @@
+{
+  "name": "@abeedoo/dendrite",
+  "version": "2.0.0",
+  "description": "Interactive mind map visualization — Canvas and SVG renderers",
+  "type": "module",
+  "main": "dist/dendrite.min.js",
+  "module": "dist/dendrite.esm.js",
+  "exports": {
+    ".": {
+      "import": "./dist/dendrite.esm.js",
+      "default": "./dist/dendrite.min.js"
+    },
+    "./svelte": "./src/svelte/DendriteMap.svelte"
+  },
+  "files": ["dist", "src/svelte"],
+  "scripts": {
+    "build": "node build.js",
+    "dev": "open demo.html"
+  },
+  "keywords": ["mindmap", "visualization", "canvas", "svg", "interactive", "tree", "dendrite"],
+  "author": "Clifford Meece <clifford.meece@me.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abeedoolabs/dendrite.git"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  }
+}
